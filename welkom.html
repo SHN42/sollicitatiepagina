@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sollicitatiepagina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0073e6;
+        }
+        .button-group {
+            margin: 20px 0;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .content {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: #fff;">Welkom op mijn sollicitatiepagina!</h1>
+        <p style="font-size: 20px;">Fijn dat je hier bent. Lees verder om te ontdekken waarom ik de juiste kandidaat ben voor deze vacature.<span style='font-size:30px;'>&#128521;</span></p>
+    </header>
+    <main>
+        <h2>Kies een onderwerp:</h2>
+        <div class="button-group">
+            <button onclick="showContent('digitalForensics')">Waarom Digital Forensics?</button>
+            <button onclick="showContent('motivatie')">Waarom ben ik de juiste kandidaat?</button>
+            <button onclick="showContent('voorbereiding')">Hoe heb ik mij voorbereid?</button>
+            <button onclick="showContent('opdracht')">Opdracht</button>
+            <button onclick="showContent('bedankt')">Bedankt voor je interesse!</button>
+        </div>
+        <div id="content" class="content">
+            <p>Klik op een knop hierboven om meer te weten te komen.</p>
+        </div>
+    </main>
+
+    <script>
+        function showContent(section) {
+            const content = {
+                digitalForensics: `
+                    <h2>Waarom Digital Forensics?</h2>
+                    <p>Ik kies voor Digital Forensics, omdat ik mij verder wil verdiepen in forensische digitale technieken en opsporing. 💻🚔 De Bachelor Digital Forensics biedt de unieke kans om theoretische kennis te combineren met praktijkervaring binnen operationele teams. Met deze opleiding wil ik bijdragen aan de toekomst van het politiewerk in een steeds digitalere wereld.🌐🔒</p>
+                `,
+                motivatie: `
+                    <h2>Waarom ben ik de juiste kandidaat?</h2>
+                    <p>Ik ben de juiste kandidaat, omdat ik gedreven, leergierig en flexibel ben. Daarnaast heb ik een sterke passie voor technologie en forensische opsporing. Mijn doorzettingsvermogen, analytische vaardigheden en bereidheid om continu te leren maken mij een uitstekende kandidaat.</p>
+                `,
+                voorbereiding: `
+                    <h2>Hoe heb ik mij voorbereid?</h2>
+                    <p>Ik heb mij goed voorbereid op deze opleiding door:
+                    <ul>
+                        <li>Te oefenen met wiskunde, programmeren, relationele databases en andere relevante onderwerpen.</li>
+                        <li>Gesprekken te voeren met meerdere collega's binnen dit vakgebied om hun inzichten te begrijpen.</li>
+                        <li>Contact op te nemen met de school om te bevestigen dat deze opleiding perfect bij mij past – en dat doet het!</li> 
+                        <li>De informatieavond van de opleiding bij te wonen en in gesprek te gaan met de opleidingsverantwoordelijk van de Hogeschool Leiden. </li>
+                    </ul>
+                    </p>
+                `,
+                bedankt: `
+                    <h2>Bedankt voor je interesse!</h2>
+                    <p>Ik hoop dat we binnenkort verder kunnen praten over deze vacature. Tot snel! 😊</p>
+                `,
+                opdracht: `
+                    <h2>Geheim bericht</h2>
+                    <p>Klik op de onderstaande knop en vind het geheime bericht! Veel succes! 😊
+                        <br><br>
+                        <i>HINT: Scrol naar beneden en zoek op <b>mijn voornaam</b>.</i></p>
+                    <button onclick="toggleSourceCode()">Toon broncode</button>
+                    <div id="sourceCode" class="hidden">
+                        <pre>${escapeHtml(document.documentElement.outerHTML)}</pre>
+                    </div>
+                `,
+            };
+            document.getElementById('content').innerHTML = content[section] || '<p>Deze sectie is momenteel niet beschikbaar.</p>';
+        }
+
+        function toggleSourceCode() {
+            const sourceCode = document.getElementById('sourceCode');
+            if (sourceCode.classList.contains('hidden')) {
+                sourceCode.classList.remove('hidden');
+            } else {
+                sourceCode.classList.add('hidden');
+            }
+        }
+
+        function escapeHtml(html) {
+            return html
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+    </script>
+
+    <!-- GEHEIM BERICHT -->
+    <!-- #Sahin: Het is je gelukt om deze tekst te vinden! Aangezien je deze opdracht hebt voltooid, ben je vast geïnteresseerd in mij. Ik wacht op je uitnodiging! 😊 -->
+
+</body>
+</html>
